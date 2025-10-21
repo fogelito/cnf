@@ -1,0 +1,32 @@
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/8.0/en/server-configuration-defaults.html
+
+[mysqld]
+log_error_verbosity=1
+user=mysql
+port=3306
+read_only=off
+sql_mode=ANSI_QUOTES,ERROR_FOR_DIVISION_BY_ZERO,IGNORE_SPACE,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ONLY_FULL_GROUP_BY,PIPES_AS_CONCAT,REAL_AS_FLOAT,STRICT_ALL_TABLES
+log-bin=e238645527f8-bin
+innodb_buffer_pool_size=20G  # round ~62% 32G RAM Use round GB
+innodb_buffer_pool_instances=8 # 32G Ram 4 cores 1-8
+innodb_buffer_pool_chunk_size=2560M # == 2.5GB innodb_buffer_pool_size / innodb_buffer_pool_instances (must be greater than 1GB)
+innodb_redo_log_capacity=5G  #25% of innodb_buffer_pool_size
+innodb_online_alter_log_max_size=3G #10% RAM
+innodb_open_files=20000
+innodb_page_cleaners=4 # CPU
+innodb_validate_tablespace_paths=OFF
+binlog_expire_logs_seconds=864000
+max_allowed_packet=1073741824
+max_connections=2215
+gtid_mode=ON
+enforce_gtid_consistency=ON
+binlog_format=ROW
+log_output=TABLE
+mysqlx=OFF
+ssl=0
+tmpdir=/tmp #mounted disk or droplet disk?
+secure_file_priv=NULL
+sql_require_primary_key=ON
+binlog_transaction_dependency_tracking=WRITESET
+disabled_storage_engines=ARCHIVE,BLACKHOLE,CSV,MEMORY,MRG_MYISAM,MyISAM
