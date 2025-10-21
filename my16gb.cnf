@@ -3,12 +3,12 @@
 
 [mysqld]
 innodb_buffer_pool_size=8G            # 50% of 16GB RAM
-innodb_buffer_pool_instances=2        # as number od cpu
+innodb_buffer_pool_instances=2        # Number of cpu's
 innodb_buffer_pool_chunk_size=4G # innodb_buffer_pool_size / innodb_buffer_pool_instances (must be greater than 1GB)
 innodb_redo_log_capacity=5G  # ~25% of buffer pool
-innodb_online_alter_log_max_size=1G # ~10–20% of buffer pool.
+innodb_online_alter_log_max_size=1G # ~10–20% of buffer pool
 innodb_open_files=20000
-innodb_page_cleaners=2 # CPU
+innodb_page_cleaners=2 # Number of cpu's
 innodb_validate_tablespace_paths=OFF
 binlog_expire_logs_seconds=864000
 max_allowed_packet=1073741824
