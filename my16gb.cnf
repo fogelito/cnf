@@ -2,15 +2,18 @@
 # http://dev.mysql.com/doc/refman/8.0/en/server-configuration-defaults.html
 
 [mysqld]
-innodb_buffer_pool_size=8G            # 50% of 16GB RAM
+innodb_buffer_pool_size=4G            # 25% of 16GB RAM
 innodb_buffer_pool_instances=2        # Number of cpu's
-innodb_buffer_pool_chunk_size=4G # innodb_buffer_pool_size / innodb_buffer_pool_instances (must be greater than 1GB)
-innodb_redo_log_capacity=5G  # ~25% of buffer pool
+innodb_buffer_pool_chunk_size=2G # innodb_buffer_pool_size / innodb_buffer_pool_instances (must be greater than 1GB)
+innodb_redo_log_capacity=1G  # ~25% of buffer pool
 innodb_online_alter_log_max_size=1G # ~10–20% of buffer pool
-innodb_open_files=20000
+innodb_open_files=15000
 innodb_page_cleaners=2 # Number of cpu's
 innodb_validate_tablespace_paths=OFF
 binlog_expire_logs_seconds=864000
 max_allowed_packet=1073741824
 max_connections=1000
 lower_case_table_names=2
+
+performance_schema=ON
+performance_schema_max_table_instances=10000       # Default is unlimited -1
